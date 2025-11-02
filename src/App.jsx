@@ -8,6 +8,7 @@ import DashboardOwner from "./Pages/OwnerPage/DashboardOwner";
 import Monitoring from "./Pages/OwnerPage/Monitoring";
 import DiagramAnalisis from "./Pages/OwnerPage/DiagramAnalisis";
 import ProfileOwner from "./Pages/OwnerPage/ProfileOwner";
+import OwnerLayout from "./Pages/OwnerPage/OwnerLayout";
 
 // FARM
 import DashboardFarm from "./Pages/FarmPage/DashboardFarm";
@@ -30,21 +31,23 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         {/* OWNER PAGE*/}
-          <Route path="dashboard-owner" element={<DashboardOwner/>}/>
-          <Route path="monitoring" element={<Monitoring/>}/>
-          <Route path="diagram-analisis" element={<DiagramAnalisis/>}/>
-          <Route path="profile-owner" element={<ProfileOwner/>} />
+          <Route path="/" element={<OwnerLayout/>}>
+            <Route path="dashboard-owner" element={<DashboardOwner/>}/>
+            <Route path="monitoring" element={<Monitoring/>}/>
+            <Route path="diagram-analisis" element={<DiagramAnalisis/>}/>
+            <Route path="profile-owner" element={<ProfileOwner/>} />
+          </Route>
 
         {/* FARM PAGE */}
-          <Route path="dashboard-farm" element={<DashboardFarm/>}/>
-          <Route path="input-kerja-farm" element={<InputKerjaFarm/>}/>
-          <Route path="profile-farm" element={<ProfilFarm/>}/>
+            <Route path="dashboard-farm" element={<DashboardFarm/>}/>
+            <Route path="input-kerja-farm" element={<InputKerjaFarm/>}/>
+            <Route path="profile-farm" element={<ProfilFarm/>}/>
 
         {/* ADMIN PAGE */}
-          <Route path="dashboard-admin" element={<DashboardAdmin/>}/>
-          <Route path="manajemen-pengguna" element={<ManajemenPengguna/>}/>
-          <Route path="konfigurasi-kandang" element={<KonfigurasiKandang/>}/>
-          <Route path="riwayat-laporan" element={<RiwayatLaporan/>}/>
+            <Route path="dashboard-admin" element={<DashboardAdmin/>}/>
+            <Route path="manajemen-pengguna" element={<ManajemenPengguna/>}/>
+            <Route path="konfigurasi-kandang" element={<KonfigurasiKandang/>}/>
+            <Route path="riwayat-laporan" element={<RiwayatLaporan/>}/>
       </Routes>
     </>
   );

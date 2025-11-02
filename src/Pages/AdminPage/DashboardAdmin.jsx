@@ -24,7 +24,12 @@ const DashboardAdmin = () => {
   ];
 
   return (
+
+    
     <div className="dashboard-admin-container">
+      <div className="manajemen-header">
+        <h1>Dashboard Admin</h1>
+      </div>
       {/* Stats Cards */}
       <div className="stats-grid-admin">
         <div className="stat-card-admin">

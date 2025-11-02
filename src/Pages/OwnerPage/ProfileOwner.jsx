@@ -1,41 +1,107 @@
-import React from "react";
+import React, { useState } from 'react';
 import './ProfileOwner.css'
 
-export default function ProfileOwner() {
+const ProfileOwner = () => {
+  const [profileData, setProfileData] = useState({
+    nama: 'Ahmad Dhani',
+    whatsapp: '+62 812-1234-9876',
+    email: 'ahmadhani@gmail.com'
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handlePhotoUpload = () => {
+    console.log('Upload photo');
+    alert('Fitur upload foto akan diimplementasikan');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Profile updated:', profileData);
+    alert('Profil berhasil disimpan!');
+  };
+
   return (
-    <OwnerLayout>
-      <h1 className="text-2xl font-bold mb-6">Profil Saya</h1>
+    <div className="profil-container">
+      <div className="profil-header">
+        <h1>Profil Saya</h1>
+      </div>
 
-      <div className="flex flex-col items-center">
-        <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4 text-5xl">
-          👤
+      <div className="profil-card">
+        {/* Profile Photo Section */}
+        <div className="profile-photo-section">
+          <div className="profile-photo">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="60" fill="#333"/>
+              <circle cx="60" cy="45" r="20" fill="#fff"/>
+              <path d="M25 95c0-19.33 15.67-35 35-35s35 15.67 35 35" fill="#fff"/>
+            </svg>
+          </div>
+          <button className="btn-upload-photo" onClick={handlePhotoUpload}>
+            Ubah Foto Profile
+          </button>
         </div>
-        <button className="border px-4 py-1 rounded-md mb-6 hover:bg-gray-100">
-          Ubah Foto Profil
-        </button>
 
-        <form className="w-96 space-y-4">
-          <div>
-            <label className="block text-gray-600 mb-1">Nama Lengkap</label>
+        {/* Profile Form */}
+        <form onSubmit={handleSubmit} className="profile-form">
+          <div className="form-group-profil">
+            <label htmlFor="nama">Nama Lengkap</label>
+            <div className="input-with-icon">
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                value={profileData.nama}
+                onChange={handleChange}
+                disabled
+              />
+              <span className="input-lock-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M15 7h-1V5c0-2.76-2.24-5-5-5S4 2.24 4 5v2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM6 5c0-1.65 1.35-3 3-3s3 1.35 3 3v2H6V5zm4 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <div className="form-group-profil">
+            <label htmlFor="whatsapp">Nomor WhatsApp</label>
             <input
-              type="text"
-              value="Budi"
-              readOnly
-              className="w-full border rounded-md px-3 py-2 bg-gray-100 focus:outline-none"
+              type="tel"
+              id="whatsapp"
+              name="whatsapp"
+              value={profileData.whatsapp}
+              onChange={handleChange}
+              placeholder="+62 812-xxxx-xxxx"
             />
           </div>
 
-          <div>
-            <label className="block text-gray-600 mb-1">Nomor WhatsApp</label>
+          <div className="form-group-profil">
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              value="+62 812-1234-9876"
-              readOnly
-              className="w-full border rounded-md px-3 py-2 focus:outline-none"
+              type="email"
+              id="email"
+              name="email"
+              value={profileData.email}
+              onChange={handleChange}
+              placeholder="email@example.com"
             />
+          </div>
+
+          <div className="form-actions-profil">
+            <button type="submit" className="btn-save-profil">
+              Simpan
+            </button>
           </div>
         </form>
       </div>
-    </OwnerLayout>
+    </div>
   );
-}
+};
+
+export default ProfileOwner;

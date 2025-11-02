@@ -61,9 +61,11 @@ const DashboardPeternak = () => {
 
         <div className="metric-card-peternak">
           <div className="metric-icon-peternak status-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
-              <path d="M16 4l-2 4H8l6 4-2 6 6-4 6 4-2-6 6-4h-6l-2-4h-4zm0 8l-4 8h8l-4-8z"/>
-              <path d="M20 28c-6 0-10 4-10 8h20c0-4-4-8-10-8z"/>
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40"  fill="#4caf50"/>
+              <path d="M40 22 L26 36 L26 58 L54 58 L54 36 Z" fill="#4caf50"/>
+              <path d="M34 44 L46 44 L46 58 L34 58 Z" fill="#4caf50"/>
+              <path d="M40 16 L20 36 L24 36 L40 20 L56 36 L60 36 Z" fill="#4caf50"/>
             </svg>
           </div>
           <div className="metric-info-peternak">

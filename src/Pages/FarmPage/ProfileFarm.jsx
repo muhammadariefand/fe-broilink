@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ProfileFarm.css';
 
-const ProfilPeternak = () => {
+const ProfileFarm = () => {
   const [profileData, setProfileData] = useState({
     nama: 'Budi',
     whatsapp: '+62 812-1234-9876',
@@ -104,4 +104,4 @@ const ProfilPeternak = () => {
   );
 };
 
-export default ProfilPeternak;
+export default ProfileFarm;

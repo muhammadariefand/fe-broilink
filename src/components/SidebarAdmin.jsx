@@ -1,11 +1,12 @@
 import { Home, Monitor, BarChart3 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
-export default function Sidebar() {
+export default function SidebarFarm() {
   const menus = [
-    { name: "Dashboard", icon: <Home size={18} />, path: "/dashboard-owner" },
-    { name: "Monitoring", icon: <Monitor size={18} />, path: "/monitoring" },
-    { name: "Diagram Analisis", icon: <BarChart3 size={18} />, path: "/diagram-analisis" },
+    { name: "Dashboard", icon: <Home size={18} />, path: "/dashboard-admin" },
+    { name: "Manajemen Pengguna", icon: <People2 size={18} />, path: "/manajemen-pengguna" },
+    { name: "Konfigurasi Kandang", icon: <Settings size={18} />, path: "/konfigurasi-kandang" },
+    { name: "Riwayat Laporan", icon: <Time size={18} />, path: "/riwayat-lapoan" },
   ];
 
   return (
